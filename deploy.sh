@@ -6,4 +6,4 @@ docker rmi cc-doc:latest # 删除已存在的景象
 
 
 docker build -t  cc-doc .   # 构建镜像
-docker run -d -p 3300:3000 --name cc-doc cc-doc
+docker run -d -p 80:3000 --name cc-doc cc-doc
