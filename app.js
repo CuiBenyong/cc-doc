@@ -1,41 +1,68 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+"use strict";
+const path = require("path");
+const Cache = require("js-cache");
+class AppBootHook {
+  constructor(app) {
+    this.app = app;
+  }
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+  beforeStart() {
+    this.app.runSchedule("backup_data");
+  }
 
-var app = express();
+  configWillLoad() {
+    this.app.loader.loadFile(
+      path.join(this.app.config.baseDir, "app/bootstrap/index.js")
+    );
+    const ctx = this.app.createAnonymousContext();
+    this.app.nunjucks.addExtension("remote", new remote(ctx));
+    this.app.nunjucks.addExtension("HeaderExtension", new HeaderExtension(ctx));
+    this.app.nunjucks.addExtension("AssetsExtension", new AssetsExtension(ctx));
+    this.app.nunjucks.addExtension(
+      "PluginsExtension",
+      new PluginsExtension(ctx)
+    );
+    this.app.nunjucks.addExtension("recommend", new recommend(ctx));
+    this.app.nunjucks.addExtension("hot", new hot(ctx));
+    this.app.nunjucks.addExtension("news", new news(ctx));
+    this.app.nunjucks.addExtension("random", new random(ctx));
+    this.app.nunjucks.addExtension("near_post", new near_post(ctx));
+    this.app.nunjucks.addExtension("tags", new tags(ctx));
+    this.app.nunjucks.addExtension("hottags", new hottags(ctx));
+    this.app.nunjucks.addExtension("ads", new ads(ctx));
+    this.app.nunjucks.addExtension("navtree", new navtree(ctx));
+    this.app.nunjucks.addExtension("childnav", new childnav(ctx));
+  }
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+  async willReady() {
+    // 请将你的应用项目中 app.beforeStart 中的代码置于此处。
+  }
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+  async didReady() {
+    const _theApp = this.app;
+    _theApp.cache = new Cache();
+    // 缓存设置
+    _theApp.messenger.on("refreshCache", (by) => {
+      _theApp.logger.info("start update by %s", by);
+      const ctx = _theApp.createAnonymousContext();
+      ctx.runInBackground(async () => {
+        const { key, value, time } = by;
+        _theApp.cache.set(key, value, time);
+      });
+    });
+    // 缓存清除
+    _theApp.messenger.on("clearCache", (by) => {
+      _theApp.logger.info("start clear by %s", by);
+      const ctx = _theApp.createAnonymousContext();
+      ctx.runInBackground(async () => {
+        const { key } = by;
+        key && _theApp.cache.del(key);
+      });
+    });
+    // 应用初始化
+    const thisCtx = this.app.createAnonymousContext();
+    this.app.init(thisCtx);
+  }
+}
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;
+module.exports = AppBootHook;
