@@ -18,6 +18,7 @@ module.exports = (appInfo) => {
       username: 'root',
       password: 'Shl1018a..',
       delegate: 'model',
+      allowPublicKeyRetrieval: true,
     },
     // 静态目录
     static: {
