@@ -39,7 +39,7 @@ a:hover { color: #000; text-decoration: none; }
 .search-paihang li a:hover { color: #1d273d }
 /*guanzhu*/
 .guanzhu { float: right; position: relative; }
-.guanzhu i { background: url(../images/icon_wx.png) no-repeat center; background-size: 32px; height: 40px; display: block; width: 40px; float: right; cursor: pointer }
+.guanzhu i {  background-size: 32px; height: 40px; display: block; width: 40px; float: right; cursor: pointer }
 .weixin { padding: 2px; overflow: hidden; text-align: center; line-height: 23px; box-shadow: #ddd 0px 5px 5px; clear: both; position: absolute; width: 256px; height: 145px; right: 0; top: 40px; display: none; background: #fff; }
 .weixin li { float: left; margin: 0 3px; color: #333; }
 .weixin li img { width: 120px; border: #ccc 1px solid; }
