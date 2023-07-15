@@ -43,7 +43,7 @@ module.exports = (appInfo) => {
     // 配置mysql信息
     sequelize: {
       dialect: 'mariadb',
-      host: '192.168.0.41', // 本地
+      host: '192.168.0.110', // 本地
       port: 3306, // 本地
       database: 'doracms', // mysql database dir
       username: 'root',
@@ -62,6 +62,6 @@ module.exports = (appInfo) => {
     logger: {
       dir: path.join(appInfo.baseDir, 'logs'),
     },
-    server_path: 'http://127.0.0.1:3000',
+    server_path: 'http://127.0.0.1:80',
   };
 };
