@@ -252,6 +252,13 @@ class HomeController extends Controller {
     await ctx.getPageData();
   }
 
+  async getAdsTxt() {
+    const ctx = this.ctx;
+    ctx.tempPage = 'ads.txt';
+    ctx.pageType = 'txt';
+    await ctx.getPageData();
+  }
+
   async getDataForErr() {
     const ctx = this.ctx;
     ctx.tempPage = 'public/do' + ctx.errNo + '.html';

@@ -6,6 +6,7 @@ module.exports = async (app) => {
 
   // 配置站点地图和robots抓取
   router.get('/sitemap.xml', controller.page.home.getSiteMapPage);
+  router.get('/ads.txt', controller.page.home.getAdsTxt);
 
   router.get('/robots.txt', controller.page.home.getRobotsPage);
 
