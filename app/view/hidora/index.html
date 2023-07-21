@@ -3,7 +3,7 @@
 {% block content %}
 <main>
   <div class="lbox">
-    <div class="swiper-container banner">
+    <!-- <div class="swiper-container banner">
       {% ads name="recommend" %}
       <div class="swiper-wrapper">
         {% for adsItem in recommend.items %}
@@ -15,11 +15,11 @@
           </a></div>
         {% endfor %}
       </div>
-      <!-- Add Pagination -->
+      Add Pagination
       <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-    </div>
+    </div> -->
     <script>
       //banner	
       var swiper = new Swiper('.swiper-container', {
@@ -34,7 +34,7 @@
       });
     </script>
     <!-- banner end-->
-    <div class="headline">
+    <!-- <div class="headline">
       <ul>
         {% recommend key="reCommendListTop",pageSize=2 %}
         {% if reCommendListTop.length > 0 %}
@@ -45,7 +45,7 @@
         {% endfor %}
         {% endif %}
       </ul>
-    </div>
+    </div> -->
     <!--headline end-->
     <div class="clear"></div>
     <div class="h_title">最新文章</div>
