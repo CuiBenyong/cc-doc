@@ -3,3 +3,5 @@ Allow: /
 Disallow: /dr-admin
 Disallow: /manage
 Disallow: /users
+
+Sitemap: http://cuiby.top/sitemap.xml
