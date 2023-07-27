@@ -254,9 +254,11 @@ class HomeController extends Controller {
 
   async getAdsTxt() {
     const ctx = this.ctx;
-    ctx.tempPage = 'ads.txt';
-    ctx.pageType = 'txt';
-    await ctx.getPageData();
+    const stream = fs.readFileSync(
+      path.join(__dirname, '../../../ads.txt'),
+      'utf-8'
+    );
+    ctx.body = stream;
   }
 
   async getDataForErr() {
