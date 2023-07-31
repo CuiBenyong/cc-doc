@@ -9,3 +9,4 @@ module.exports = (app) => {
   // FRONT_ROUTER_END
   require('./router/manage')(app);
 };
+
