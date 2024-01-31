@@ -1,0 +1,22 @@
+{
+  "name": "zizhudocs",
+  "version": "0.0.1",
+  "description": "紫竹翻译计划",
+  "scripts": {
+    "postinstall": "patch-package",
+    "start": "npm run dev",
+    "dev": "dumi dev",
+    "build": "dumi build",
+    "prepare": "dumi setup"
+  },
+  "authors": [
+    "luozhu2021@gmail.com"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@umijs/preset-dumi": "^1.1.54",
+    "core-js": "3.31.0",
+    "dumi": "2.2.1",
+    "patch-package": "^7.0.0"
+  }
+}
