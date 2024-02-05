@@ -8,10 +8,10 @@ export default defineConfig({
     logo: 'https://cdn.jsdelivr.net/gh/CuiBenyong/resources@main/react-dnd-logo.png',
     prefersColor: { default: 'auto' },
     socialLinks: {
-      github: 'https://github.com/CuiBenyong/react-dnd-cn'
+      github: 'https://github.com/CuiBenyong/cc-doc'
     },
     hd: { rules: [] },
-    footer: 'Made with ❤️ by <a href="https://github.com/CuiBenyong/react-dnd-cn" target="_blank" nofollow>react-dnd 中文版</a>'
+    footer: 'Made with ❤️ by <a href="https://github.com/CuiBenyong/cc-doc" target="_blank" nofollow>react-dnd 中文版</a>'
   },
   theme: {
     '@c-primary': '#4078c0',
@@ -22,7 +22,7 @@ export default defineConfig({
     // ga_v2: '',
   },
   sitemap: {
-    hostname: 'https://react-dnd.cuiby.top',
+    hostname: 'https://cuiby.top',
   },
   hash: true,
   exportStatic: {},
