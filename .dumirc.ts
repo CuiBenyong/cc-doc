@@ -28,10 +28,10 @@ export default defineConfig({
   exportStatic: {},
   ...(process.env.NODE_ENV === 'development' ? {} : { ssr: {} }),
   headScripts: [
-    // {
-    //   src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9981755609549541',
-    //   async: true,
-    //   crossorigin: 'anonymous',
-    // },
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9580076271637088',
+      async: true,
+      crossorigin: 'anonymous',
+    },
   ],
 });
