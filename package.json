@@ -1,7 +1,7 @@
 {
   "name": "zizhudocs",
   "version": "0.0.1",
-  "description": "紫竹翻译计划",
+  "description": "react-dnd-cn",
   "scripts": {
     "postinstall": "patch-package",
     "start": "npm run dev",
@@ -10,7 +10,7 @@
     "prepare": "dumi setup"
   },
   "authors": [
-    "luozhu2021@gmail.com"
+    "cuibenyong@gmail.com"
   ],
   "license": "MIT",
   "devDependencies": {
