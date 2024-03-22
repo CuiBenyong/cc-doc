@@ -1,11 +1,11 @@
 const express = require('express');
+const serverless  = require('serverless-http');
 const app = express();
-const path = require('path');
-const port = 3000;
+
 
 // Umi static files (including SSG pages)
-app.use(express.static(path.join(__dirname, './dist')));
-app.use(express.static(path.join(__dirname, './server')));
+app.use(express.static( './dist'));
+app.use(express.static( './ser'));
 
 // Logger middleware
 app.use(async (req, res, next) => {
@@ -14,13 +14,17 @@ app.use(async (req, res, next) => {
 });
 
 // Umi SSR middleware
-app.use(require(__dirname + '/ser/umi.server').default);
+app.use(require('./ser/umi.server').default);
 
 
+console.log('------dir', __dirname)
 
 
-
-// Start server
-app.listen(port, () => {
-  console.log(`Server is now running at http://127.0.0.1:${port}/`);
-});
+// // Start server
+// app.listen(80, () => {
+//   console.log(`Server is now running at http://127.0.0.1:${port}/`);
+// });
+// app.listen(443, () => {
+//   console.log(`Server is now running at http://127.0.0.1:${port}/`);
+// });
+module.exports.handler = serverless(app);
