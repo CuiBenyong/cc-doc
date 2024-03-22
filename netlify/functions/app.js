@@ -2,9 +2,21 @@ const express = require('express');
 const app = express();
 const serverless  = require('serverless-http');
 
-const path = require('path');
-const port = 3000;
+const fs = require('fs');
 
+
+async function ls(){
+  try {
+    const dir = await opendir('../');
+    for await (const dirent of dir)
+      console.log(dirent.name);
+  } catch (err) {
+    console.error(err);
+  }
+
+}
+
+ls()
 // Umi static files (including SSG pages)
 app.use(express.static( '../../dist'));
 app.use(express.static( '../../ser'));
