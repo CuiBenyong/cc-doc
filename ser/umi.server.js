@@ -51985,7 +51985,7 @@ function getValidKeys() {
 }
 function getManifest(sourceDir) {
 
-  console.log('-------------------')
+  console.log('-------------------',__dirname, __webpack_require__(1017).join(__dirname,'../dist/build-manifest.json'))
   return JSON.parse((__webpack_require__(7147).readFileSync)(sourceDir ? (__webpack_require__(1017).join)(sourceDir, 'build-manifest.json') :  __webpack_require__(1017).join(__dirname,'../dist/build-manifest.json'), 'utf-8'));
 }
 function createHistory(opts) {
