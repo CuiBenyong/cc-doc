@@ -22,11 +22,11 @@ app.use(require('../../server/umi.server').default);
 
 
 
-// Start server
-app.listen(80, () => {
-  console.log(`Server is now running at http://127.0.0.1:${port}/`);
-});
-app.listen(443, () => {
-  console.log(`Server is now running at http://127.0.0.1:${port}/`);
-});
+// // Start server
+// app.listen(80, () => {
+//   console.log(`Server is now running at http://127.0.0.1:${port}/`);
+// });
+// app.listen(443, () => {
+//   console.log(`Server is now running at http://127.0.0.1:${port}/`);
+// });
 module.exports.handler = serverless(app);
