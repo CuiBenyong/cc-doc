@@ -7,7 +7,7 @@ const fs = require('fs');
 
 async function ls(){
   try {
-  fs.opendir('../../', async (err,dir)=>{
+  fs.opendir('/', async (err,dir)=>{
     console.log(err)
     for await (const dirent of dir)
     console.log(dirent.name);
