@@ -6,8 +6,8 @@ const path = require('path');
 const port = 3000;
 
 // Umi static files (including SSG pages)
-app.use(express.static( '/dist'));
-app.use(express.static( '/server'));
+app.use(express.static( 'dist'));
+app.use(express.static( 'server'));
 
 // Logger middleware
 app.use(async (req, res, next) => {
@@ -16,7 +16,7 @@ app.use(async (req, res, next) => {
 });
 
 // Umi SSR middleware
-app.use(require('/server/umi.server').default);
+app.use(require('server/umi.server').default);
 
 
 
