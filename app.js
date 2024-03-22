@@ -1,13 +1,5 @@
 const express = require('express');
 const app = express();
-const fs = require('fs');
-const config = require('./server/build-manifest.json');
-const assets = config.assets;
-const umicss = fs.readFileSync('./dist/umi.css');
-const ads = fs.readFileSync('./dist/ads.txt');
-const robots = fs.readFileSync('./dist/robots.txt');
-
-const render = require(`./server/umi.server`)
 const path = require('path');
 const port = 3000;
 
@@ -22,7 +14,7 @@ app.use(async (req, res, next) => {
 });
 
 // Umi SSR middleware
-app.use(require(__dirname + '/server' + assets['umi.js']).default);
+app.use(require(__dirname + '/ser/umi.server').default);
 
 
 
