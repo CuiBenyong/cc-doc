@@ -19,7 +19,7 @@ app.use(async (req, res, next) => {
 app.use(require('../../ser/umi.server').default);
 
 
-
+console.log('------dir', __dirname)
 
 
 // // Start server
