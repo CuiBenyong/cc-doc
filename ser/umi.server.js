@@ -51984,8 +51984,6 @@ function getValidKeys() {
   return ['patchRoutes', 'patchClientRoutes', 'modifyContextOpts', 'modifyClientRenderOpts', 'rootContainer', 'innerProvider', 'i18nProvider', 'accessProvider', 'dataflowProvider', 'outerProvider', 'render', 'onRouteChange', 'modifyCodeSandboxData', 'modifyStackBlitzData'];
 }
 function getManifest(sourceDir) {
-
-  console.log('-------------------',__dirname,(__webpack_require__(7147).readFileSync( __webpack_require__(1017).join(__dirname,'../../dist/')))
   return JSON.parse((__webpack_require__(7147).readFileSync)(sourceDir ? (__webpack_require__(1017).join)(sourceDir, 'build-manifest.json') :  __webpack_require__(1017).join(__dirname,'../../../dist/build-manifest.json'), 'utf-8'));
 }
 function createHistory(opts) {
