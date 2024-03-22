@@ -51984,7 +51984,7 @@ function getValidKeys() {
   return ['patchRoutes', 'patchClientRoutes', 'modifyContextOpts', 'modifyClientRenderOpts', 'rootContainer', 'innerProvider', 'i18nProvider', 'accessProvider', 'dataflowProvider', 'outerProvider', 'render', 'onRouteChange', 'modifyCodeSandboxData', 'modifyStackBlitzData'];
 }
 function getManifest(sourceDir) {
-  return JSON.parse((__webpack_require__(7147).readFileSync)(sourceDir ? (__webpack_require__(1017).join)(sourceDir, 'build-manifest.json') :  '/dist/build-manifest.json', 'utf-8'));
+  return JSON.parse((__webpack_require__(7147).readFileSync)(sourceDir ? (__webpack_require__(1017).join)(sourceDir, 'build-manifest.json') :  'react-dnd-zh/dist/build-manifest.json', 'utf-8'));
 }
 function createHistory(opts) {
   return (0,core_history/* createHistory */.f)(opts);
