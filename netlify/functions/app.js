@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-import serverless from "serverless-http";
+const serverless  = require('serverless-http');
 
 const path = require('path');
 const port = 3000;
@@ -26,4 +26,4 @@ app.use(require(__dirname + '/../../server/umi.server').default);
 // app.listen(port, () => {
 //   console.log(`Server is now running at http://127.0.0.1:${port}/`);
 // });
-export const handler = serverless(app);
+module.exports.handler = serverless(app);
