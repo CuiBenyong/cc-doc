@@ -19,20 +19,20 @@ async function ls(){
     for await (const dirent of dir)
     console.log('var',dirent.name);
   });
-  fs.opendir('/etc', async (err,dir)=>{
+  // fs.opendir('/etc', async (err,dir)=>{
+  //   console.log('333',err)
+  //   for await (const dirent of dir)
+  //   console.log('etc',dirent.name);
+  // });
+  fs.opendir('/usr/local/etc', async (err,dir)=>{
     console.log('333',err)
     for await (const dirent of dir)
-    console.log('etc',dirent.name);
+    console.log('usr/local/etc',dirent.name);
   });
-  fs.opendir('/usr/local', async (err,dir)=>{
+  fs.opendir('/usr/local/src', async (err,dir)=>{
     console.log('333',err)
     for await (const dirent of dir)
-    console.log('usr/local',dirent.name);
-  });
-  fs.opendir('/usr/src', async (err,dir)=>{
-    console.log('333',err)
-    for await (const dirent of dir)
-    console.log('/usr/src',dirent.name);
+    console.log('/usr/local/src',dirent.name);
   });
   fs.opendir('/usr/etc', async (err,dir)=>{
     console.log('333',err)
