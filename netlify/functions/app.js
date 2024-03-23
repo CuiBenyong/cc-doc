@@ -14,7 +14,7 @@ async function ls(){
     for await (const dirent of dir)
     console.log('opt',dirent.name);
   });
-  fs.opendir('/var/local', async (err,dir)=>{
+  fs.opendir('/var/task', async (err,dir)=>{
     console.log('222',err)
     for await (const dirent of dir)
     console.log('var',dirent.name);
