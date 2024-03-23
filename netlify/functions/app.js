@@ -7,10 +7,10 @@ const fs = require('fs');
 
 async function ls(){
   try {
-  fs.opendir('./netlify', async (err,dir)=>{
-    console.log(err)
+  fs.opendir('./', async (err,dir)=>{
+    console.log('6666',err)
     for await (const dirent of dir)
-    console.log(dirent.name);
+    console.log('dddd',dirent.name);
   });
 
   } catch (err) {
@@ -21,8 +21,8 @@ async function ls(){
 
 ls()
 // Umi static files (including SSG pages)
-app.use(express.static( '../../dist'));
-app.use(express.static( '../../ser'));
+app.use(express.static( '/'));
+app.use(express.static( './server'));
 
 // Logger middleware
 app.use(async (req, res, next) => {
@@ -31,7 +31,7 @@ app.use(async (req, res, next) => {
 });
 
 // Umi SSR middleware
-app.use(require('../../ser/umi.server').default);
+app.use(require('./server/umi.server').default);
 
 
 console.log('------dir', __dirname)

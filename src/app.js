@@ -2,10 +2,12 @@ const express = require('express');
 const serverless  = require('serverless-http');
 const app = express();
 
+const router = express.Router();
+
 
 // Umi static files (including SSG pages)
-app.use(express.static( './dist'));
-app.use(express.static( './ser'));
+app.use(express.static( '../dist'));
+app.use(express.static( './server'));
 
 // Logger middleware
 app.use(async (req, res, next) => {
@@ -14,9 +16,9 @@ app.use(async (req, res, next) => {
 });
 
 // Umi SSR middleware
-app.use(require('./ser/umi.server').default);
+app.use(require('./server/umi.server').default);
 
-
+app.use("/.netlify/functions/app", router);
 console.log('------dir', __dirname)
 
 
