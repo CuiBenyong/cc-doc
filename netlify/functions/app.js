@@ -1,13 +1,14 @@
 const express = require('express');
-const app = express();
+import cors from "cors"
+import bodyParser from "body-parser"
 const serverless  = require('serverless-http');
 
 const fs = require('fs');
 
-
+const app = express();
 async function ls(){
   try {
-  fs.opendir('./netlify/functions/', async (err,dir)=>{
+  fs.opendir('/opt', async (err,dir)=>{
     console.log('6666',err)
     for await (const dirent of dir)
     console.log('dddd',dirent.name);
