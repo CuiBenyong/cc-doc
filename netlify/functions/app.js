@@ -7,7 +7,7 @@ const fs = require('fs');
 
 async function ls(){
   try {
-  fs.opendir('./netlify/functions/null', async (err,dir)=>{
+  fs.opendir('./netlify/functions/server', async (err,dir)=>{
     console.log('6666',err)
     for await (const dirent of dir)
     console.log('dddd',dirent.name);
