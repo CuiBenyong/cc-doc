@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npm run build",
     "dev": "dumi dev",
-    "build": "dumi build && netlify deploy --prod",
+    "build": "dumi build",
+    "deploy": "dumi build && netlify deploy --prod",
     "prepare": "dumi setup"
   },
   "authors": [
