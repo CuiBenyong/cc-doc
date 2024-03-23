@@ -7,7 +7,7 @@ const fs = require('fs');
 
 async function ls(){
   try {
-  fs.opendir('./netlify/functions', async (err,dir)=>{
+  fs.opendir('./netlify/functions/null', async (err,dir)=>{
     console.log('6666',err)
     for await (const dirent of dir)
     console.log('dddd',dirent.name);
@@ -21,8 +21,8 @@ async function ls(){
 
 ls()
 // Umi static files (including SSG pages)
-app.use(express.static( '/'));
-app.use(express.static( './server'));
+app.use(express.static( '/dist'));
+app.use(express.static( '/server'));
 
 // Logger middleware
 app.use(async (req, res, next) => {

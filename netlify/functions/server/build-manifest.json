@@ -1,8 +1,0 @@
-{
-  "assets": {
-    "public/ads.txt": "/ads.txt",
-    "public/robots.txt": "/robots.txt",
-    "umi.css": "/umi.css",
-    "umi.js": "/umi.server.js"
-  }
-}
