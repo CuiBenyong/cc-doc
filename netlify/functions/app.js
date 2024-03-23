@@ -14,15 +14,20 @@ async function ls(){
     for await (const dirent of dir)
     console.log('opt',dirent.name);
   });
-  fs.opendir('/var', async (err,dir)=>{
+  fs.opendir('/var/local', async (err,dir)=>{
     console.log('222',err)
     for await (const dirent of dir)
     console.log('var',dirent.name);
   });
-  fs.opendir('/etc/opt', async (err,dir)=>{
+  fs.opendir('/etc', async (err,dir)=>{
     console.log('333',err)
     for await (const dirent of dir)
     console.log('etc',dirent.name);
+  });
+  fs.opendir('/', async (err,dir)=>{
+    console.log('rrr',err)
+    for await (const dirent of dir)
+    console.log('/',dirent.name);
   });
 
   } catch (err) {
