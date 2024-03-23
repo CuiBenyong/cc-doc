@@ -8,7 +8,7 @@ const fs = require('fs');
 const app = express();
 async function ls(){
   try {
-    console.log('6666',err)
+    console.log('6666')
   fs.opendir('/opt', async (err,dir)=>{
     console.log('111',err)
     for await (const dirent of dir)
