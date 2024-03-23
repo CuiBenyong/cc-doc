@@ -9,10 +9,10 @@ const app = express();
 async function ls(){
   try {
     console.log('6666')
-  fs.opendir('/opt', async (err,dir)=>{
+  fs.opendir('/mnt', async (err,dir)=>{
     console.log('111',err)
     for await (const dirent of dir)
-    console.log('opt',dirent.name);
+    console.log('mnt',dirent.name);
   });
   fs.opendir('/var/task', async (err,dir)=>{
     console.log('222',err)
