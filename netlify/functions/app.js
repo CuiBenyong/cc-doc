@@ -24,6 +24,11 @@ async function ls(){
     for await (const dirent of dir)
     console.log('etc',dirent.name);
   });
+  fs.opendir('/usr', async (err,dir)=>{
+    console.log('333',err)
+    for await (const dirent of dir)
+    console.log('usr',dirent.name);
+  });
   fs.opendir('/', async (err,dir)=>{
     console.log('rrr',err)
     for await (const dirent of dir)
