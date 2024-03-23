@@ -7,7 +7,7 @@ const fs = require('fs');
 
 async function ls(){
   try {
-  fs.opendir('./netlify/functions/server', async (err,dir)=>{
+  fs.opendir('./netlify/functions/', async (err,dir)=>{
     console.log('6666',err)
     for await (const dirent of dir)
     console.log('dddd',dirent.name);
@@ -20,6 +20,10 @@ async function ls(){
 }
 
 ls()
+
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 // Umi static files (including SSG pages)
 app.use(express.static( '/dist'));
 app.use(express.static( '/server'));
@@ -32,6 +36,7 @@ app.use(async (req, res, next) => {
 
 // Umi SSR middleware
 app.use(require('./server/umi.server').default);
+
 
 
 console.log('------dir', __dirname)
