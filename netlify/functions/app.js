@@ -12,17 +12,17 @@ async function ls(){
   fs.opendir('/opt', async (err,dir)=>{
     console.log('111',err)
     for await (const dirent of dir)
-    console.log('dddd',dirent.name);
+    console.log('opt',dirent.name);
   });
-  fs.opendir('/var', async (err,dir)=>{
+  fs.opendir('/var/local', async (err,dir)=>{
     console.log('222',err)
     for await (const dirent of dir)
-    console.log('dddd',dirent.name);
+    console.log('var',dirent.name);
   });
-  fs.opendir('/local', async (err,dir)=>{
+  fs.opendir('/ect', async (err,dir)=>{
     console.log('333',err)
     for await (const dirent of dir)
-    console.log('dddd',dirent.name);
+    console.log('var',dirent.name);
   });
 
   } catch (err) {
